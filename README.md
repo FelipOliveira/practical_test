@@ -24,12 +24,12 @@ Para abrir a interface do banco de dados use a url `localhost:8080/h2-ui`.
 
 ![h2-database.png](h2-database.png)
 
-não serão necessárias configurações adicionais, basta clicar no botão `connect` para ter acesso aos schemas.
+Não serão necessárias configurações adicionais, basta clicar no botão `connect` para ter acesso aos schemas.
 
 ![h2-database-schema.png](h2-database-schema.png)
 
 ## Utilizando o Swagger
-digite na barra de endereço do navegador `localhost:8080/swagger-ui/index.html` para interagir com os endopoints da aplicação.
+Digite na barra de endereço do navegador `localhost:8080/swagger-ui/index.html` para interagir com os endopoints da aplicação.
 
 ![swagger-interface.png](swagger-interface.png)
 
