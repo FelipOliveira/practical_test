@@ -1,0 +1,76 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentJob.id">
+    <h4>Job</h4>
+    <div>
+      <label><strong>Title:</strong></label> {{ currentJob.title }}
+    </div>
+    <div>
+      <label><strong>Description:</strong></label>
+      {{ currentJob.description }}
+    </div>
+
+    <a class="badge badge-warning"
+      routerLink="/jobs/{{ currentJob.id }}">
+      Edit
+    </a>
+  </div>
+
+  <div *ngIf="!currentJob">
+    <br />
+    <p>Please click on a Job..</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentJob.id" class="edit-form">
+    <h4>Job</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentJob.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentJob.description"
+          name="description"
+        />
+      </div>
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteJob()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-warning mb-2"
+      (click)="updateJob()"
+    >
+      Update
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="applyToJob(currentUser.id, currentJob)"
+    >
+      Apply
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentJob.id">
+    <br />
+    <p>Cannot access...</p>
+  </div>
+</ng-template>

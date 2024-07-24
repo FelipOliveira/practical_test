@@ -1,0 +1,78 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentUser.id">
+      <h4>User</h4>
+      <div>
+        <label><strong>Username:</strong></label> {{ currentUser.username }}
+      </div>
+      <div>
+        <label><strong>Email:</strong></label>
+        {{ currentUser.email }}
+      </div>
+
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let job of currentUser.jobs; let i = index"
+        >
+          {{ job.title }}
+        </li>
+      </ul>
+  
+      <a class="badge badge-warning"
+        routerLink="/users/{{ currentUser.id }}">
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentUser">
+      <br />
+      <p>Please select a User.</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentUser.id" class="edit-form">
+      <h4>User</h4>
+      <form>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            [(ngModel)]="currentUser.username"
+            name="username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            [(ngModel)]="currentUser.email"
+            name="email"
+          />
+        </div>
+      </form>
+  
+      <button class="badge badge-danger mr-2" (click)="deleteUser()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateUser()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentUser.id">
+      <br />
+      <p>Cannot access...</p>
+    </div>
+  </ng-template>
+  
