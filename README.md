@@ -1,4 +1,4 @@
-# aplicação web para o processo de recrutamento interno
+# Aplicação web para o processo de recrutamento interno
 Este foi um Desafio Técnico para Desenvolvedor Full Stack. Entretanto não foi possível entregar o produto completo dentro do prazo estipulado. Apesar do tempo e dedicação empregados, houve desafios significativos devido à inexperiência com Angular e autenticação. Desta forma, está sendo entregue o projeto até onde foi possível completá-lo.
 
 Para executar esta aplicação serão necessários:
